@@ -1,4 +1,4 @@
-# Linux Fundamentals
+# Linux Fundamentals - 101
 
 ## Completed navigation commands
 
@@ -11,7 +11,7 @@
 | Move to parent | `cd ..` | Move up one directory level |
 | Move home | `cd ~` | Move to the user home directory |
 
-## Completed file commands
+## Completed file commands - Short
 
 | Task | Linux command | Meaning |
 |---|---|---|
