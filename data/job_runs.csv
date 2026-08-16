@@ -1,0 +1,9 @@
+run_id,job_name,team,status,duration_seconds,records_processed
+1001,load_prices,market_data,SUCCESS,42,1500
+1002,validate_trades,trading,FAILED,75,800
+1003,refresh_positions,trading,SUCCESS,31,1200
+1004,publish_risk,risk,FAILED,95,600
+1005,archive_data,operations,SUCCESS,120,2000
+1006,load_prices,market_data,FAILED,68,1400
+1007,reconcile_cash,operations,SUCCESS,,950
+1008,publish_risk,risk,SUCCESS,55,700

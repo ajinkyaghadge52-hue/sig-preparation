@@ -459,4 +459,15 @@ Use `>` carefully because it replaces existing file contents. `>>` preserves the
 
 ## Next lesson
 
-Complete the timed Linux conversational drill and retest weak points.
+Linux conversational drill completed. Retest numeric permissions (`640`) and graceful process termination (`SIGTERM`) during the final mock interview.
+
+## Conversational drill results
+
+Strengths: selected appropriate commands for log filtering, pipelines, system resources, and permission roles; clearly distinguished `chmod`, `chown`, and `chgrp`.
+
+Retest points:
+
+- Use `tail`, not `head`, for the latest log entries.
+- `rw-r-----` is `640`; group `5` would incorrectly add execute permission.
+- Locate processes broadly with `pgrep -a name` or `ps aux`; inspect a PID before acting.
+- Send default `SIGTERM` with `kill PID` first. Use `kill -9 PID` only as a last resort.
