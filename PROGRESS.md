@@ -1,5 +1,20 @@
 # SIG Interview Preparation Progress
 
+## Interview outcome
+
+- [x] Completed the initial live-coding interview
+- [x] Answered the Linux command questions
+- [x] Completed and explained the coding solution
+- [x] Used notes only for occasional syntax checks
+
+## Phase 2 goal
+
+Prepare for a possible in-person coding round through progressively harder Python problems, independent recall, testing, debugging, and clear complexity explanations.
+
+### Phase 2 Python problem solving
+
+- [x] Aggregate BUY and SELL trades into net positions by symbol
+
 ## Dashboard
 
 - [x] Linux fundamentals completed
@@ -103,6 +118,8 @@
 | Python | Used one dictionary to collect multiple matching records | Use a list of dictionaries; repeated dictionary-key assignment overwrites earlier values | Yes |
 | Python | Misspelled a loop variable and raised `NameError` | Use the same variable spelling where it is defined and referenced; read the final traceback line first | Yes |
 | Python | Used required-key access for an optional key in a list of dictionaries | Each list item is one dictionary; use `job.get("status")` when the key may be missing | Yes |
+| Python | Used the whole `trades` list as though it were one dictionary | Inside `for trade in trades`, access the current dictionary with `trade["key"]` | Yes |
+| Python | Used literal `result["symbol"]` instead of the variable key | `result[symbol]` uses the value such as `AAPL`; quoted `"symbol"` is a different literal key | Yes |
 | Pandas | Grouped the full DataFrame when the question asked about failed jobs only | Filter the relevant population first, then group and aggregate | Yes |
 
 ## Confidence
@@ -120,4 +137,4 @@
 
 ## Next action
 
-At the 9:00 AM restart, complete `python/python_retest.py` independently, run the compressed combined mock, generate the final cheat sheet, and revise weak points before the 3:00 PM interview.
+Resume `python/phase2/02_rank_positions.py`: print `positions.items()`, build one `get_sort_key(item)` result at a time, then use `sorted(..., key=get_sort_key)`.

@@ -2,15 +2,11 @@
 
 This repository supports step-by-step preparation for Linux, foundational Python, pandas, and a final SIG interview simulation.
 
-Current position: all planned Linux, Python, and pandas teaching is complete. The Linux conversational drill and timed pandas analysis are complete. The earlier combined Python exercise required hints, so the next task is an independent retest in `python/python_retest.py`: implement `find_large_failures(runs, minimum_records)` and expect `[201, 205]` for a threshold of 1000.
+Current position: the initial live-coding interview was completed successfully. Linux questions were answered and the coding solution was completed and explained; notes were used only for occasional syntax checks. All original Linux, Python, and pandas teaching is complete.
 
-Restart plan for 9:00 AM before the 3:00 PM interview:
+New direction: use this repository as the foundation for a deeper Python phase aimed at a possible in-person coding round. Progress from core collection patterns into nested-data aggregation, sorting, parsing, file processing, generators, standard-library tools, testing, debugging, and complexity analysis. Require independent attempts before solutions and continue recording mistakes and concise revision notes.
 
-1. Complete and evaluate the independent Python retest.
-2. Run a compressed combined mock covering Linux, Python, pandas, and reasoning aloud.
-3. Review errors from the mock, especially numeric permissions, graceful process termination, optional dictionary keys, and filtering before pandas grouping.
-4. Generate and review the final open-book cheat sheet.
-5. Update final confidence and completion status in `PROGRESS.md`.
+Phase 2 status: Problem 1, net positions by symbol, is complete and documented. Problem 2 is paused at `python/phase2/02_rank_positions.py`. Dictionary traversal with `.items()` has been introduced. Resume by printing each `(symbol, position)` tuple and its `(-abs(position), symbol)` sort key before calling `sorted(..., key=get_sort_key)`. Do not jump directly to a lambda; use a named helper function and intermediate values first.
 
 Learning references:
 
