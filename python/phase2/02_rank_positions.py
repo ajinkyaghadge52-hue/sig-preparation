@@ -32,11 +32,27 @@ positions = {
 
 
 def rank_positions(positions):
-    # Write your solution here.
-    final=[]
-    for symbol, position in positions.items():
-        print(symbol, position, abs(position))
+    items = list(positions.items())
 
+    def get_symbol(item):
+        symbol, position = item
+        return symbol
 
+    def get_absolute_position(item):
+        symbol, position = item
+        return abs(position)
+
+    alphabetical_items = sorted(
+        items,
+        key=get_symbol,
+    )
+
+    ranked_items = sorted(
+        alphabetical_items,
+        key=get_absolute_position,
+        reverse=True,
+    )
+
+    return ranked_items
 
 print(rank_positions(positions))

@@ -11,9 +11,24 @@
 
 Prepare for a possible in-person coding round through progressively harder Python problems, independent recall, testing, debugging, and clear complexity explanations.
 
+Canonical roadmap: `.codex_notes/plan/2026-08/002-python-data-analysis-engineering-mastery-plan.md`.
+
+The roadmap restarts from first principles and advances only through explicit mastery gates. Previously completed work remains evidence, but gaps are retaught through smaller isolated exercises.
+
+Personalized status: basic functions, loops, conditions, common collections, exceptions, and pandas operations have been demonstrated. The active bridge focuses on container mental models, tuple unpacking, function execution, and simple sorting before returning to custom sorting.
+
 ### Phase 2 Python problem solving
 
 - [x] Aggregate BUY and SELL trades into net positions by symbol
+- [ ] Custom sorting by absolute exposure (paused; reinforce prerequisites first)
+
+### Python mastery bridge
+
+- [x] Distinguish lists, tuples, sets, and dictionaries
+- [x] Use the correct access and removal rules for each container
+- [x] Distinguish the complete list from one dictionary produced by a loop
+- [x] Distinguish literal dictionary keys from keys stored in variables
+- [x] Create, index, and unpack tuples, including dictionary `.items()` tuples
 
 ## Dashboard
 
@@ -137,4 +152,4 @@ Prepare for a possible in-person coding round through progressively harder Pytho
 
 ## Next action
 
-Resume `python/phase2/02_rank_positions.py`: print `positions.items()`, build one `get_sort_key(item)` result at a time, then use `sorted(..., key=get_sort_key)`.
+Resume Bridge 5 in `python/foundations/05_function_calls.py`. No exercise steps have been attempted. Step 1 only: run the file without calling `describe_job` and explain why defining a function produces no output.
