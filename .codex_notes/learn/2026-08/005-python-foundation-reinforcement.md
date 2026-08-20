@@ -42,7 +42,7 @@ Correct output does not always prove correct implementation. Accessing `symbols_
 
 ## Next concept
 
-Distinguish function definition from execution, parameters, arguments, and return values.
+Apply the completed sorting bridge to the paused position-ranking problem.
 
 ## Complete container versus current loop item
 
@@ -102,3 +102,104 @@ for symbol, position in positions.items():
 ```
 
 Here, the loop performs the traversal and each iteration unpacks one `(key, value)` tuple.
+
+## Function definition, calls, and return values
+
+`def` creates a function but does not execute its body. A function call supplies arguments to its parameters and executes the stored instructions.
+
+```python
+def describe_job(name, duration):
+    message = f"{name} took {duration} seconds"
+    return message
+
+result = describe_job("load_prices", 12)
+print(result)
+```
+
+`name` and `duration` are parameters; `"load_prices"` and `12` are arguments. `return` sends a value back to the caller. Without an explicit return, Python returns `None`.
+
+```python
+print(describe_job("load_prices", 12))
+```
+
+This prints a returned value directly. A bare function call in a script executes the function but does not display its return value. Prefer returning data from processing functions so callers can store, print, test, or transform it.
+
+## Plain sorting
+
+`sorted()` traverses an iterable internally, returns a new list, and leaves the original collection unchanged.
+
+```python
+durations = [90, 10, 60, 30]
+
+ascending = sorted(durations)                 # [10, 30, 60, 90]
+descending = sorted(durations, reverse=True)  # [90, 60, 30, 10]
+```
+
+Strings sort alphabetically by default. `reverse=False` is the default ascending direction; `reverse=True` requests descending order.
+
+## Sorting with a named key function
+
+A key function returns the temporary comparison value for one item. `sorted()` internally calls it for every item but returns the original items in the resulting order.
+
+```python
+words = ["data", "pipeline", "sql", "python"]
+
+def get_length(word):
+    return len(word)
+
+sorted_words = sorted(words, key=get_length)
+```
+
+The helper returns `4`, `8`, `3`, and `6`; the output is `['sql', 'data', 'python', 'pipeline']`. The original list is unchanged. Passing `key=get_length` gives the function itself to `sorted`; writing `get_length(word)` manually calls it for one word.
+
+## Sorting tuples by one field
+
+```python
+jobs = [
+    ("load_prices", 12),
+    ("validate_trades", 4),
+    ("publish_report", 9),
+]
+
+def get_duration(job):
+    name, duration = job
+    return duration
+
+sorted_jobs = sorted(jobs, key=get_duration)
+```
+
+`sorted()` receives the complete list and internally passes one tuple at a time to `get_duration`. The helper returns `12`, `4`, and `9` as comparison keys, while the output retains the original tuples in the corresponding order. No external loop or `.append()` is needed.
+
+## Sorting by absolute value
+
+```python
+positions = [60, -90, 10, 90]
+
+def get_absolute_value(position):
+    return abs(position)
+
+ascending = sorted(positions, key=get_absolute_value)
+descending = sorted(positions, key=get_absolute_value, reverse=True)
+```
+
+The helper supplies `60`, `90`, `10`, and `90` for comparison, but the output retains the original signed values. Ascending produces `[10, 60, -90, 90]`; descending produces `[-90, 90, 60, 10]`. Equal keys retain their existing relative order because Python sorting is stable.
+
+## Stable sorting and tie-breakers
+
+For multiple rules with stable sorting, apply the secondary rule first and the primary rule second.
+
+```python
+alphabetical_words = sorted(words)
+final_words = sorted(
+    alphabetical_words,
+    key=get_length,
+    reverse=True,
+)
+```
+
+The second sort ranks lengths descending. Equal-length words preserve their existing alphabetical order. This is sequential sorting, not recursion.
+
+```text
+secondary rule first → alphabetical
+primary rule second  → length descending
+```

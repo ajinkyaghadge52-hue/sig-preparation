@@ -20,7 +20,10 @@ Personalized status: basic functions, loops, conditions, common collections, exc
 ### Phase 2 Python problem solving
 
 - [x] Aggregate BUY and SELL trades into net positions by symbol
-- [ ] Custom sorting by absolute exposure (paused; reinforce prerequisites first)
+- [x] Rank signed positions by absolute exposure with alphabetical tie-breaking
+- [x] Add assertion checks for normal and edge-case behavior
+- [x] Normalize one trade-side string and reject unsupported values
+- [x] Normalize a list by reusing a single-value helper function
 
 ### Python mastery bridge
 
@@ -29,6 +32,12 @@ Personalized status: basic functions, loops, conditions, common collections, exc
 - [x] Distinguish the complete list from one dictionary produced by a loop
 - [x] Distinguish literal dictionary keys from keys stored in variables
 - [x] Create, index, and unpack tuples, including dictionary `.items()` tuples
+- [x] Distinguish function definition, calls, parameters, arguments, and returns
+- [x] Sort numbers and strings ascending and descending with `sorted()`
+- [x] Sort words with one simple named key function
+- [x] Sort simple tuples by one field using a named key function
+- [x] Sort signed numbers by absolute value while preserving their signs
+- [x] Resolve equal keys with stable two-step sorting
 
 ## Dashboard
 
@@ -135,6 +144,8 @@ Personalized status: basic functions, loops, conditions, common collections, exc
 | Python | Used required-key access for an optional key in a list of dictionaries | Each list item is one dictionary; use `job.get("status")` when the key may be missing | Yes |
 | Python | Used the whole `trades` list as though it were one dictionary | Inside `for trade in trades`, access the current dictionary with `trade["key"]` | Yes |
 | Python | Used literal `result["symbol"]` instead of the variable key | `result[symbol]` uses the value such as `AAPL`; quoted `"symbol"` is a different literal key | Yes |
+| Python | A single-value function ignored its parameter and processed a global list | Make the function process its one argument; use a separate loop or wrapper function for the complete list | Yes |
+| Python | A list-processing function looped over the global test list instead of its `sides` parameter | Loop over the parameter so every caller's input is respected | Yes |
 | Pandas | Grouped the full DataFrame when the question asked about failed jobs only | Filter the relevant population first, then group and aggregate | Yes |
 
 ## Confidence
@@ -152,4 +163,4 @@ Personalized status: basic functions, loops, conditions, common collections, exc
 
 ## Next action
 
-Resume Bridge 5 in `python/foundations/05_function_calls.py`. No exercise steps have been attempted. Step 1 only: run the file without calling `describe_job` and explain why defining a function produces no output.
+Start Problem 5: apply the completed normalization helper to trade dictionaries while keeping the task small and testable.

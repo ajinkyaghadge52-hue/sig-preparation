@@ -31,44 +31,26 @@ positions = {
 }
 
 
-def rank_positions(positions):
-    items = list(positions.items())
 
-    def get_symbol(item):
+def sort_list(positions):
+    items=list(positions.items())
+
+    def symbol(item):
         symbol, position = item
         return symbol
 
-    def get_absolute_position(item):
+    def abs_position(item):
         symbol, position = item
         return abs(position)
 
-    alphabetical_items = sorted(
-        items,
-        key=get_symbol,
-    )
 
-    ranked_items = sorted(
-        alphabetical_items,
-        key=get_absolute_position,
-        reverse=True,
-    )
+    alhgabetical_sort = sorted(items, key = symbol)
 
-    return ranked_items
-
-print(rank_positions(positions))
+    final_list = sorted(alhgabetical_sort, key=abs_position, reverse=True)
 
 
-assert rank_positions({}) == [] 
+    return(final_list)
 
 
-assert rank_positions({
-    "XYZ": -20,
-    "ABC":20
-}) == [
-    ("ABC", 20),
-    ("XYZ", -20)
+print(sort_list(positions))
 
-
-]
-
-print("All assertion tests passed")
